@@ -1,10 +1,11 @@
-import configApi from '../../../api/config'
+import configApi from '../../api/config'
 import {
   SAVE_USERS,
   SAVE_POSTS,
   SAVE_COMMENTS,
   FETCH_USERS,
   FETCH_POSTS,
+  SET_CURRENT_USER,
 } from './actionsTypes'
 
 const fetching = (boolean, type) => ({
@@ -21,6 +22,8 @@ const saveCommentByPost = (comments, id) => ({
   comments,
   id,
 })
+
+const currentUser = currentUser => ({ type: SET_CURRENT_USER, currentUser })
 
 const findUsers = () => {
   return async dispatch => {
@@ -70,4 +73,5 @@ export {
   savePosts,
   findCommets,
   saveCommentByPost,
+  currentUser,
 }

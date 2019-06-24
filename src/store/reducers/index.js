@@ -5,9 +5,13 @@ import {
   SAVE_POSTS,
   SAVE_COMMENTS,
   FETCH_POSTS,
+  SET_CURRENT_USER,
 } from '../actions/actionsTypes'
 
-const usersReducers = (state = { users: [], fetching: false }, action) => {
+const usersReducers = (
+  state = { users: [], fetching: false, currentUser: '' },
+  action
+) => {
   switch (action.type) {
     case SAVE_USERS:
       return {
@@ -18,6 +22,11 @@ const usersReducers = (state = { users: [], fetching: false }, action) => {
       return {
         ...state,
         fetching: action.boolean,
+      }
+    case SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.currentUser,
       }
     default:
       return state
